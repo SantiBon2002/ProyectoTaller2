@@ -10,9 +10,9 @@ public class DiccJugadores extends Diccionario <String, Jugador> implements Seri
 	private static final long serialVersionUID = 1L;
 	
 	public DiccJugadores () 
-	{	super();	}
+	{	super();}
 	
-	public ArrayList<VOJugadorListado> listarJugadores () {
+	public ArrayList <VOJugadorListado> listarJugadores () {
 		ArrayList <VOJugadorListado> res = new ArrayList<VOJugadorListado>();
 		Iterator <Jugador> iter = arbol.values().iterator();
 		

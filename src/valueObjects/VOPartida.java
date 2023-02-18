@@ -1,8 +1,12 @@
 package valueObjects;
 
+import java.io.Serializable;
+
 import capaLogica.Pelicula;
 
-public class VOPartida {
+public class VOPartida implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private int idPartida;
 	private int puntaje;
 	private boolean finalizada;
