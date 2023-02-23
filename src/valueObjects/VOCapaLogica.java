@@ -12,8 +12,8 @@ public class VOCapaLogica implements Serializable{
 	private DiccPeliculas diccP;
 	
 	public VOCapaLogica (DiccJugadores diccJ, DiccPeliculas diccP) {
-		diccJ = new DiccJugadores();
-		diccP = new DiccPeliculas();
+		this.diccJ = diccJ;
+		this.diccP = diccP;
 	}
 	
 	public DiccJugadores getDiccJugadores () 

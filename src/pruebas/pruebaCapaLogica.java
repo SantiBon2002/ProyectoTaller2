@@ -16,7 +16,7 @@ public class pruebaCapaLogica {
 			cl = new CapaLogica();
 		} catch (RemoteException e) {}
 		catch (IOException e) {}
-		/*
+		
 		ArrayList <VOJugadorListado> listarJ = new ArrayList <VOJugadorListado>();
 		try {
 			listarJ = cl.listarJugadores();
@@ -53,7 +53,7 @@ public class pruebaCapaLogica {
 				System.out.println("Peliculas erradas: " + ranking[i].getCantPelisErradas());
 			}
 		} catch (RemoteException e) {}
-		/*/
+		/*
 		VOJugadorSimple voj1 = new VOJugadorSimple("pepe", 1);
 		VOJugadorSimple voj2 = new VOJugadorSimple("pipo", 2);
 		VOJugadorSimple voj3 = new VOJugadorSimple("pepo", 3);
@@ -262,6 +262,6 @@ public class pruebaCapaLogica {
 		} catch (RemoteException e) {}
 		catch (PersistenciaException e) { 
 			System.out.println(e.getMensaje());
-		}
+		}*/
 	}
 }

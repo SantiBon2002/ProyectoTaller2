@@ -32,8 +32,8 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica{
 		VOCapaLogica aux;
 		
 		try {
-			p.load(new FileInputStream("config/configuracion.properties"));
-			nomArch = p.getProperty("nombreArchivo");
+			p.load(new FileInputStream("src/config/config.properties"));
+			nomArch = p.getProperty("archivoDeDatos");
 			aux = dx.recuperar(nomArch);
 			
 			if (aux != null) {
@@ -145,7 +145,7 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica{
 		Properties p = new Properties();
 		
 		try {
-			p.load(new FileInputStream("config/config.properties"));
+			p.load(new FileInputStream("src/config/config.properties"));
 			String nomArch = p.getProperty("archivoDeDatos");
 			dx.respaldar(nomArch, voc);
 			monitor.terminoLectura();
@@ -154,7 +154,6 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica{
 			monitor.terminoLectura();
 			throw new PersistenciaException("Error al respaldar");
 		}
-		monitor.terminoLectura();
 	}
 	
 	//public void restaurarInformacion()throws RemoteException
