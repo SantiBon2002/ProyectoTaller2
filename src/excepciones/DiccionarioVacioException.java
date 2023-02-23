@@ -11,5 +11,5 @@ public class DiccionarioVacioException extends Exception{
 	public String getMensaje() {
 		return msg;
 	}
-	
+
 }

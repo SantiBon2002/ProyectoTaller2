@@ -70,6 +70,9 @@ public class Partida implements Serializable{
 	public void susCien () 
 	{	puntaje -= 100;	}
 	
+	public boolean letraYaAdivinada (String letra)
+	{	return textoAdivinado.contains(letra);	}
+	
 	public void agregarLetra (char letra)
 	{	
 		letra = Character.toUpperCase(letra);

@@ -1,4 +1,4 @@
-package capaLogica;
+ package capaLogica;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,9 +9,6 @@ public class DiccPeliculas extends Diccionario <String, Pelicula> implements Ser
 	
 	public DiccPeliculas ()
 	{	super();	}
-	
-	public int largo() 
-	{	return arbol.size();	}
 	
 	public ArrayList <VOPelicula> listarPeliculas () {
 		ArrayList <VOPelicula> res = new ArrayList<VOPelicula>();
@@ -25,5 +22,14 @@ public class DiccPeliculas extends Diccionario <String, Pelicula> implements Ser
 		}
 		return res;
 	}
-
+	
+	public String[] getTitulos () {
+		String[] titulos = new String[arbol.size()];
+		Iterator <Pelicula> iter = arbol.values().iterator();
+		for (int i = 0; i < titulos.length; i++) {
+			titulos[i] = iter.next().getTitulo();
+		}
+		
+		return titulos;
+	}
 }

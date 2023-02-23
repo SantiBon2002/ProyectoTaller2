@@ -21,6 +21,7 @@ public class Jugador implements Serializable{
 		puntajeTotal = 0;
 		cantPelisAcertadas = 0;
 		cantPelisErradas = 0;
+		partidasJugadas = new SecPartidas();
 	}
 	public String getNombre() 
 	{	return nombre;	}
@@ -37,6 +38,30 @@ public class Jugador implements Serializable{
 	public int getCantPelisErradas () 
 	{	return cantPelisErradas;	}
 	
+	public SecPartidas getSecPartidas ()
+	{	return partidasJugadas;	}
+	
 	public VOPartida[] getPartidasJugadas () 
 	{	return partidasJugadas.getVOPartidas();	}
+	
+	public Partida getFirstPartida ()
+	{	return partidasJugadas.getFirst();	}
+	
+	public void addPartida (Partida p)
+	{	partidasJugadas.insert(p);	}
+	
+	public int cantPartidas ()
+	{	return partidasJugadas.tamanio();	}
+	
+	public boolean tienePartidas ()
+	{	return !(partidasJugadas.empty());	}
+	
+	public boolean tienePartidaEnCurso () {	
+		if (partidasJugadas.empty())
+			return false;
+		return partidasJugadas.partidaEnCurso();
+	}
+	public void finPartida(int id) {
+		partidasJugadas.getFirst().setFinalizada(true);
+	}
 }

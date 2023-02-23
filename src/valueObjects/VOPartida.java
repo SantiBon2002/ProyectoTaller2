@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import capaLogica.Pelicula;
 
-public class VOPartida implements Serializable{
+public class VOPartida extends VOPartidaBase implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int idPartida;
@@ -12,15 +12,14 @@ public class VOPartida implements Serializable{
 	private boolean finalizada;
 	private boolean acertada;
 	private String textoAdivinado;
-	private Pelicula peliculaAAdivinar;
 	
-	public VOPartida (int id, int p, boolean fin, boolean acer, String txt, Pelicula peli) {
+	public VOPartida (Pelicula peli, int id, int p, boolean fin, boolean acer, String txt) {
+		super(peli);
 		idPartida = id;
 		puntaje = p;
 		finalizada = fin;
 		acertada = acer;
 		textoAdivinado = txt;
-		peliculaAAdivinar = peli;
 	}
 	
 	public int getIdPartida () 
@@ -39,7 +38,7 @@ public class VOPartida implements Serializable{
 	{	return textoAdivinado;	}
 	
 	public Pelicula getPeliculaAAdivinar () 
-	{	return peliculaAAdivinar;	}
+	{	return super.getPeliculaAAdivinar();	}
 	
 	public void setIdPartida (int id)
 	{	idPartida = id;	}
@@ -57,5 +56,5 @@ public class VOPartida implements Serializable{
 	{	textoAdivinado = txt;	}
 	
 	public void setPeliculaAAdivinar (Pelicula peli) 
-	{	peliculaAAdivinar = peli;	}
+	{	super.setPeliculaAAdivinar(peli);	}
 }

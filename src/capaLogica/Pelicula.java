@@ -9,7 +9,13 @@ public class Pelicula implements Serializable {
 	private String titulo;
 	private String descripcion;
 	
-	private String parsingTitulo (String tit) {
+	
+	public Pelicula (String tit, String desc) {	
+		titulo = parsingTitulo(tit);
+		descripcion = desc;
+	}
+	
+	public String parsingTitulo (String tit) {
 		tit = tit.toUpperCase();
 		tit = tit.trim();
 		String aux = "" + tit.charAt(0);
@@ -19,11 +25,6 @@ public class Pelicula implements Serializable {
 		}
 		tit = aux;
 		return tit;
-	}
-	
-	public Pelicula (String tit, String desc) {	
-		titulo = parsingTitulo(tit);
-		descripcion = desc;
 	}
 	
 	public String getTitulo ()
@@ -37,6 +38,9 @@ public class Pelicula implements Serializable {
 	
 	public void setDescripcion (String desc)
 	{	descripcion = desc;	}
+	
+	public boolean letraPertenece (String letra)
+	{	return titulo.contains(letra);	}
 	
 	public ArrayList<Integer> getOcurrencias (char letra)
 	{

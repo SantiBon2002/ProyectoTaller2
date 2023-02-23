@@ -7,48 +7,38 @@ public class Monitor implements Serializable{
 	private int cantLectores;
 	private boolean escribiendo;
 	
-	public Monitor()
-	{
+	public Monitor() {
 		cantLectores = 0;
 		escribiendo = false;
 	}
 	
-	public synchronized void comienzoLectura()
-	{
-		if(escribiendo)									// si hay alguien escribiendo, a dormir (wait)
-		{												// atrapar ac� mismo la excepci�n de wait, sin hacer nada en el catch
-			try
-			{
+	public synchronized void comienzoLectura() {
+		if(escribiendo) {										// atrapar ac� mismo la excepcion de wait, sin hacer nada en el catch
+			try {
 				this.wait();
 			}
-			catch(InterruptedException e)
-			{	}
+			catch(InterruptedException e) {
+			}
 		}
 		cantLectores ++;
 	}
-	public synchronized void terminoLectura()
-	{
+	public synchronized void terminoLectura() {
 		if((cantLectores - 1) == 0)						// si soy el ultimo lector que quedaba, despierto a alguien (notify)
-		{
 			this.notify();
-		}
 		cantLectores --;
 	}
-	public synchronized void comienzoEscritura()
-	{
+	public synchronized void comienzoEscritura() {
 		if(escribiendo | cantLectores > 0)				// si hay alguien escribiendo o leyendo, a dormir (wait)
 		{
-			try
-			{
+			try{
 				this.wait();
 			}
-			catch(InterruptedException e)
-			{	}
+			catch(InterruptedException e) {
+			}
 		}
 		escribiendo = true;
 	}
-	public synchronized void terminoEscritura()
-	{
+	public synchronized void terminoEscritura() {
 		escribiendo = false;							// despierto a alguien (notify)
 		this.notify();
 	}

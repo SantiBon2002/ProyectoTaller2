@@ -25,4 +25,7 @@ public class Diccionario <K,T> implements Serializable {
 	
 	public void delete (K clave)
 	{ arbol.remove(clave);	}
+	
+	public int largo() 
+	{	return arbol.size();	}
 }
