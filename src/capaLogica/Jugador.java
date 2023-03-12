@@ -59,9 +59,16 @@ public class Jugador implements Serializable{
 	public boolean tienePartidaEnCurso () {	
 		if (partidasJugadas.empty())
 			return false;
-		return partidasJugadas.partidaEnCurso();
+		else
+			return partidasJugadas.partidaEnCurso();
 	}
-	public void finPartida(int id) {
+	public void finPartida(boolean a) {
 		partidasJugadas.getFirst().setFinalizada(true);
+		partidasJugadas.getFirst().setAcertada(a);
+		if (a)
+			cantPelisAcertadas += 1;
+		else
+			cantPelisErradas += 1;
+		puntajeTotal += partidasJugadas.getFirst().getPuntaje();
 	}
 }

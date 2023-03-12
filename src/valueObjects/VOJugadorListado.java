@@ -13,7 +13,7 @@ public class VOJugadorListado extends VOJugadorSimple implements Serializable{
 		super(nom, cod);
 		puntajeTotal = p;
 		cantPelisAcertadas = cpa;
-		cantPelisAcertadas = cpe;
+		cantPelisErradas = cpe;
 	}
 	
 	public int getPuntajeTotal () 

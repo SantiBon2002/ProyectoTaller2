@@ -15,11 +15,11 @@ public interface ICapaLogica extends Remote{
 	public void registrarPelicula(VOPelicula pel)throws RemoteException, ElementoYaExisteEnDiccException,  NoAlfanumericoException;
 	public ArrayList <VOPelicula> listarPeliculas() throws RemoteException, DiccionarioVacioException;
 	public void guardarCambios() throws RemoteException, PersistenciaException;
-	//public void restaurarInformacion() throws RemoteException;
-	//public void login(String nom, int cod) throws RemoteException, ElementoNoExisteEnDiccException;
-	public void iniciarPartida(VOJugadorSimple voj) throws RemoteException, HayPartidaEnCursoException, NoHayPeliculasParaAdivinarException, ElementoNoExisteEnDiccException, CodigoIncorrectoException;
+	public void login(VOJugadorSimple voj)throws RemoteException, ElementoNoExisteEnDiccException, CodigoIncorrectoException;
+	public void iniciarPartida (VOJugadorSimple voj) throws RemoteException, HayPartidaEnCursoException, NoHayPeliculasParaAdivinarException, ElementoNoExisteEnDiccException, CodigoIncorrectoException;
 	public VOPartida verPartidaEnCurso(VOJugadorSimple voj) throws RemoteException, ElementoNoExisteEnDiccException, CodigoIncorrectoException, NoHayPartidaEnCursoException;
+	public boolean partidaUltimaAcertada(String nom) throws RemoteException;
 	public void ingresarLetra(VOJugadorSimple voj, String letra) throws RemoteException, LetraYaAdivinadaException, LetraNoPerteneceAlTituloException, NoHayPartidaEnCursoException, ElementoNoExisteEnDiccException, CodigoIncorrectoException;
-	public void arriesgarPelicula(VOJugadorSimple voj, String titulo) throws RemoteException, NoHayPartidaEnCursoException, ElementoNoExisteEnDiccException, CodigoIncorrectoException;
+	public void arriesgarPelicula(VOJugadorSimple voj, String titulo) throws RemoteException, NoHayPartidaEnCursoException, ElementoNoExisteEnDiccException, CodigoIncorrectoException, PeliculaIncorrectaException;
 	public VOJugadorListado[] rankingGeneral() throws RemoteException;
 }

@@ -6,14 +6,24 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controladores.ControladorRegistrarPelicula;
+import valueObjects.VOPelicula;
+
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
 
 public class RegistrarPelicula {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtFieldTitulo;
+	private ControladorRegistrarPelicula miControlador;
+	private JTextArea txtAreaDescripcion;
 
 	/**
 	 * Launch the application.
@@ -23,7 +33,7 @@ public class RegistrarPelicula {
 			public void run() {
 				try {
 					RegistrarPelicula window = new RegistrarPelicula();
-					window.frame.setVisible(true);
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,15 +46,34 @@ public class RegistrarPelicula {
 	 */
 	public RegistrarPelicula() {
 		initialize();
+		this.miControlador = new ControladorRegistrarPelicula(this);
 	}
 
+	public void setVisible (boolean b) 
+	{	frame.setVisible(b);	}
+	
+	public void mensajeError (String e, boolean exit) {
+		int input = 0;
+		if (exit == false) {
+			input = JOptionPane.showOptionDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE,
+					null, null, null);
+		} else {
+			input = JOptionPane.showOptionDialog(null, e, "Correcto", JOptionPane.PLAIN_MESSAGE,
+					JOptionPane.INFORMATION_MESSAGE, null, null, null);
+		}
+
+		if (input == JOptionPane.OK_OPTION && exit) {
+			frame.dispose();
+		}
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setType(Type.UTILITY);
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 500, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -52,42 +81,41 @@ public class RegistrarPelicula {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Registrar jugador");
-		lblNewLabel.setFont(new Font("Century Gothic", Font.BOLD, 25));
-		lblNewLabel.setBounds(10, 11, 256, 30);
-		panel.add(lblNewLabel);
+		JLabel lblTitulo = new JLabel("Registrar pelicula");
+		lblTitulo.setFont(new Font("Century Gothic", Font.BOLD, 25));
+		lblTitulo.setBounds(10, 11, 256, 30);
+		panel.add(lblTitulo);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(10, 69, 102, 25);
-		panel.add(lblNewLabel_1);
+		JLabel lblTituloPeli = new JLabel("Titulo");
+		lblTituloPeli.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		lblTituloPeli.setBounds(10, 69, 102, 25);
+		panel.add(lblTituloPeli);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Código");
-		lblNewLabel_1_1.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(10, 118, 102, 25);
-		panel.add(lblNewLabel_1_1);
+		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		lblDescripcion.setBounds(10, 118, 102, 25);
+		panel.add(lblDescripcion);
 		
-		JButton btnNewButton = new JButton("Confirmar");
-		btnNewButton.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		btnNewButton.setBounds(75, 222, 130, 30);
-		panel.add(btnNewButton);
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VOPelicula peli = new VOPelicula(txtFieldTitulo.getText(), txtAreaDescripcion.getText());
+				miControlador.registrarPelicula(peli);
+			}
+		});
+		btnConfirmar.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		btnConfirmar.setBounds(260, 222, 150, 30);
+		panel.add(btnConfirmar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		btnCancelar.setBounds(280, 222, 130, 30);
-		panel.add(btnCancelar);
+		txtFieldTitulo = new JTextField();
+		txtFieldTitulo.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		txtFieldTitulo.setColumns(10);
+		txtFieldTitulo.setBounds(110, 69, 300, 25);
+		panel.add(txtFieldTitulo);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		textField.setBounds(100, 121, 300, 25);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		textField_1.setColumns(10);
-		textField_1.setBounds(100, 72, 300, 25);
-		panel.add(textField_1);
+		txtAreaDescripcion = new JTextArea();
+		txtAreaDescripcion.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		txtAreaDescripcion.setBounds(110, 121, 300, 90);
+		panel.add(txtAreaDescripcion);
 	}
-
 }

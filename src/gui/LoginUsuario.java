@@ -1,30 +1,28 @@
 package gui;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.JTextField;
-
-import controladores.ControladorRegistrarJugador;
-import valueObjects.VOJugadorSimple;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import controladores.ControladorLoginUsuario;
+import valueObjects.VOJugadorSimple;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 
-public class RegistrarJugador {
+public class LoginUsuario {
 
 	private JFrame frame;
 	private JTextField txtFieldCodigo;
 	private JTextField txtFieldNombre;
-	private ControladorRegistrarJugador miControlador;
-
+	private ControladorLoginUsuario miControlador;
 	/**
 	 * Launch the application.
 	 */
@@ -32,7 +30,7 @@ public class RegistrarJugador {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegistrarJugador window = new RegistrarJugador();
+					LoginUsuario window = new LoginUsuario();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,13 +41,13 @@ public class RegistrarJugador {
 	/**
 	 * Create the application.
 	 */
+	public LoginUsuario() {
+		initialize();
+		this.miControlador = new ControladorLoginUsuario(this);
+	}
+
 	public void setVisible (boolean b) 
 	{	frame.setVisible(b);	}
-	
-	public RegistrarJugador() {
-		this.initialize();
-		this.miControlador = new ControladorRegistrarJugador(this);
-	}
 	
 	public void mensajeError (String e, boolean exit) {
 		int input = 0;
@@ -65,7 +63,6 @@ public class RegistrarJugador {
 			frame.dispose();
 		}
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -81,19 +78,19 @@ public class RegistrarJugador {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblTitulo = new JLabel("Registrar jugador");
+		JLabel lblTitulo = new JLabel("LogIn");
 		lblTitulo.setFont(new Font("Century Gothic", Font.BOLD, 25));
-		lblTitulo.setBounds(10, 11, 256, 30);
+		lblTitulo.setBounds(10, 11, 100, 30);
 		panel.add(lblTitulo);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		lblNombre.setBounds(10, 69, 102, 25);
+		lblNombre.setBounds(10, 69, 100, 25);
 		panel.add(lblNombre);
 		
 		JLabel lblCodigo = new JLabel("Código");
 		lblCodigo.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		lblCodigo.setBounds(10, 118, 102, 25);
+		lblCodigo.setBounds(10, 118, 100, 25);
 		panel.add(lblCodigo);
 		
 		txtFieldCodigo = new JTextField();
@@ -108,18 +105,17 @@ public class RegistrarJugador {
 		txtFieldNombre.setBounds(100, 72, 300, 25);
 		panel.add(txtFieldNombre);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.addActionListener(new ActionListener() {
+		JButton btnLogIn = new JButton("LogIn");
+		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int codigo = Integer.parseInt(txtFieldCodigo.getText());
 				VOJugadorSimple voj = new VOJugadorSimple(txtFieldNombre.getText(), codigo);
-				miControlador.registrarJugador(voj);
+				miControlador.loginUsuario(voj);
 			}
 		});
-		btnConfirmar.setFont(new Font("Century Gothic", Font.PLAIN, 16));
-		btnConfirmar.setBounds(250, 222, 150, 30);
-		panel.add(btnConfirmar);
-		
-		
+		btnLogIn.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		btnLogIn.setBounds(170, 223, 130, 30);
+		panel.add(btnLogIn);
 	}
+
 }
