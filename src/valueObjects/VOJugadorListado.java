@@ -1,8 +1,5 @@
 package valueObjects;
-
-import java.io.Serializable;
-
-public class VOJugadorListado extends VOJugadorSimple implements Serializable{
+public class VOJugadorListado extends VOJugadorSimple {
 	private static final long serialVersionUID = 1L;
 	
 	private int puntajeTotal;

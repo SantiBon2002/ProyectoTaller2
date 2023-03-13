@@ -42,7 +42,7 @@ public class ControladorLoginUsuario {
 			fachada.login(voj);
 			ventana.setVisible(false);
 			IniciarNuevaPartida iniciar = new IniciarNuevaPartida();
-			ControladorIniciarNuevaPartida cIniciar = new ControladorIniciarNuevaPartida(iniciar, voj);
+			new ControladorIniciarNuevaPartida(iniciar, voj);
 		} catch (ElementoNoExisteEnDiccException e) {
 			ventana.mensajeError(e.getMensaje(), false);
 		} catch (CodigoIncorrectoException e) {

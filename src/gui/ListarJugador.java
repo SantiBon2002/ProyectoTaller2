@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.awt.Window.Type;
@@ -71,12 +70,11 @@ public class ListarJugador {
 	{	frame.setVisible(b);	}
 	
 	public void mensajeError (String e, boolean exit) {
-		int input = 0;
 		if (exit == false) {
-			input = JOptionPane.showOptionDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE,
+			JOptionPane.showOptionDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE,
 					null, null, null);
 		} else {
-			input = JOptionPane.showOptionDialog(null, e, "Correcto", JOptionPane.PLAIN_MESSAGE,
+			JOptionPane.showOptionDialog(null, e, "Correcto", JOptionPane.PLAIN_MESSAGE,
 					JOptionPane.INFORMATION_MESSAGE, null, null, null);
 		}
 		frame.dispose();

@@ -1,7 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,9 +9,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import controladores.ControladorIniciarNuevaPartida;
 import controladores.ControladorPartida;
-import valueObjects.VOJugadorSimple;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -29,20 +25,6 @@ public class PartidaGui {
 	private JLabel lblTxtAdivinado;
 	private JTextField txtFieldInput;
 	private JTextPane txtpaneDesc;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PartidaGui window = new PartidaGui();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

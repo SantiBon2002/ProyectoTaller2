@@ -14,11 +14,11 @@ public class ControladorInicio {
 	
 	public void loguearse () {
 		ventana.setVisible(false);
-		LoginUsuario login = new LoginUsuario();
+		new LoginUsuario();
 	}
 	
 	public void menuAdmin () {
 		ventana.setVisible(false);
-		MenuAdmin admin = new MenuAdmin();
+		new MenuAdmin();
 	}
 }

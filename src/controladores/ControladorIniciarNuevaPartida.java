@@ -46,7 +46,7 @@ public class ControladorIniciarNuevaPartida {
 		try {
 			fachada.iniciarPartida(voj);
 			PartidaGui parti = new PartidaGui();
-			ControladorPartida cParti = new ControladorPartida(parti, voj);
+			new ControladorPartida(parti, voj);
 		} catch (ElementoNoExisteEnDiccException e) {
 			ventana.mensajeError(e.getMensaje(), false);
 		} catch (CodigoIncorrectoException e) {
@@ -55,7 +55,7 @@ public class ControladorIniciarNuevaPartida {
 			ventana.mensajeError(e.getMensaje(), false);
 		} catch (HayPartidaEnCursoException e) {
 			PartidaGui parti = new PartidaGui();
-			ControladorPartida cParti = new ControladorPartida(parti, voj);
+			new ControladorPartida(parti, voj);
 			//ventana.mensajeError(e.getMensaje(), false);
 		} catch (RemoteException e) {
 			ventana.mensajeError(errorCon, false);

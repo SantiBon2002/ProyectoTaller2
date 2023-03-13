@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -27,21 +26,7 @@ public class ListarPartidasDeJugador {
 	private ControladorListarPartidasDeJugador miControlador;
 	private JTable table;
 	private DefaultTableModel modelo;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ListarPartidasDeJugador window = new ListarPartidasDeJugador();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */

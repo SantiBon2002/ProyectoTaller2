@@ -1,9 +1,7 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,22 +21,7 @@ public class ListarPeliculas {
 	private JFrame frame;
 	private ControladorListarPeliculas miControlador;
 	private JTable table;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ListarPeliculas window = new ListarPeliculas();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -68,12 +51,12 @@ public class ListarPeliculas {
 	{	frame.setVisible(b);	}
 	
 	public void mensajeError (String e, boolean exit) {
-		int input = 0;
+		
 		if (exit == false) {
-			input = JOptionPane.showOptionDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE,
+			JOptionPane.showOptionDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE,
 					null, null, null);
 		} else {
-			input = JOptionPane.showOptionDialog(null, e, "Correcto", JOptionPane.PLAIN_MESSAGE,
+			JOptionPane.showOptionDialog(null, e, "Correcto", JOptionPane.PLAIN_MESSAGE,
 					JOptionPane.INFORMATION_MESSAGE, null, null, null);
 		}
 			frame.dispose();

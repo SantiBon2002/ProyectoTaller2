@@ -1,10 +1,7 @@
 package valueObjects;
 
-import java.io.Serializable;
-
 import capaLogica.Pelicula;
-
-public class VOPartida extends VOPartidaBase implements Serializable{
+public class VOPartida extends VOPartidaBase {
 	private static final long serialVersionUID = 1L;
 	
 	private int idPartida;

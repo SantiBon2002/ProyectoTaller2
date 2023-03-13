@@ -1,13 +1,12 @@
 package capaLogica;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import valueObjects.VOJugadorListado;
 
 
-public class DiccJugadores extends Diccionario <String, Jugador> implements Serializable{
+public class DiccJugadores extends Diccionario <String, Jugador> /*implements Serializable*/{
 	private static final long serialVersionUID = 1L;
 	
 	public DiccJugadores () 

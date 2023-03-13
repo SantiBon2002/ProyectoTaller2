@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -24,22 +23,6 @@ public class RegistrarPelicula {
 	private JTextField txtFieldTitulo;
 	private ControladorRegistrarPelicula miControlador;
 	private JTextArea txtAreaDescripcion;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegistrarPelicula window = new RegistrarPelicula();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

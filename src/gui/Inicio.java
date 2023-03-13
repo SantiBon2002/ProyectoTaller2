@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import controladores.ControladorInicio;
-import controladores.ControladorLoginUsuario;
 
 public class Inicio {
 
@@ -25,7 +24,7 @@ public class Inicio {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Inicio window = new Inicio();
+					new Inicio();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

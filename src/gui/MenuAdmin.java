@@ -1,7 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -20,21 +18,6 @@ public class MenuAdmin {
 
 	private JFrame frame;
 	private ControladorMenuAdmin miControlador;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuAdmin window = new MenuAdmin();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -81,7 +64,7 @@ public class MenuAdmin {
 		JButton btnRegJugador = new JButton("Registrar jugador");
 		btnRegJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistrarJugador regJugador = new RegistrarJugador();
+				new RegistrarJugador();
 			}
 		});
 		btnRegJugador.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -93,7 +76,7 @@ public class MenuAdmin {
 		JButton btnRegPelicula = new JButton("Añadir película");
 		btnRegPelicula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistrarPelicula regPelicula = new RegistrarPelicula();
+				new RegistrarPelicula();
 			}
 		});
 		btnRegPelicula.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -103,7 +86,7 @@ public class MenuAdmin {
 		JButton btnLstPartidasDeJugador = new JButton("Listar partidas de un jugador");
 		btnLstPartidasDeJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListarPartidasDeJugador lstPartidasJug = new ListarPartidasDeJugador();
+				new ListarPartidasDeJugador();
 			}
 		});
 		btnLstPartidasDeJugador.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -113,7 +96,7 @@ public class MenuAdmin {
 		JButton btnVerPartida = new JButton("Ver partida en curso");
 		btnVerPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VisualizarPartida verpartida = new VisualizarPartida();
+				new VisualizarPartida();
 			}
 		});
 		btnVerPartida.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -123,7 +106,7 @@ public class MenuAdmin {
 		JButton btnLstPeliculas = new JButton("Listar peliculas");
 		btnLstPeliculas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListarPeliculas lstPeliculas = new ListarPeliculas();
+				new ListarPeliculas();
 			}
 		});
 		btnLstPeliculas.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -133,7 +116,7 @@ public class MenuAdmin {
 		JButton btnLstJugadores = new JButton("Listar jugadores");
 		btnLstJugadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListarJugador lstJugadores = new ListarJugador();
+				new ListarJugador();
 			}
 		});
 		btnLstJugadores.setFont(new Font("Century Gothic", Font.PLAIN, 16));
@@ -143,7 +126,7 @@ public class MenuAdmin {
 		JButton btnRanking = new JButton("Ranking general");
 		btnRanking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RankingGeneral ranking = new RankingGeneral();
+				new RankingGeneral();
 			}
 		});
 		btnRanking.setFont(new Font("Century Gothic", Font.PLAIN, 16));

@@ -1,9 +1,7 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,29 +14,13 @@ import controladores.ControladorRankingGeneral;
 import valueObjects.VOJugadorListado;
 
 import java.awt.Window.Type;
-import java.util.ArrayList;
 
 public class RankingGeneral {
 
 	private JFrame frame;
 	private JTable table;
 	private ControladorRankingGeneral miControlador;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RankingGeneral window = new RankingGeneral();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */

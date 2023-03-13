@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -23,20 +22,6 @@ public class LoginUsuario {
 	private JTextField txtFieldCodigo;
 	private JTextField txtFieldNombre;
 	private ControladorLoginUsuario miControlador;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginUsuario window = new LoginUsuario();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

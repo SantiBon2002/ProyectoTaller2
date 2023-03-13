@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -8,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controladores.ControladorIniciarNuevaPartida;
-import valueObjects.VOJugadorSimple;
 
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
