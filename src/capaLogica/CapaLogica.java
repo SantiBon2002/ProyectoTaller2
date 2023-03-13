@@ -312,28 +312,6 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica{
 	public VOJugadorListado[] rankingGeneral()throws RemoteException
 	{
 		return diccJ.rankingGeneral();
-		/*ArrayList<VOJugadorListado> jugadores = diccJ.listarJugadores();
-		VOJugadorListado[] ranking = new VOJugadorListado[jugadores.size()];
-		
-		ranking[0] = jugadores.get(0);
-		int j;
-		boolean insertado;
-		for (int i = 1; i < jugadores.size(); i++) {
-			j = 0;
-			insertado = false;
-			while (ranking[j] != null && j < ranking.length && !insertado) {
-				if (jugadores.get(i).getPuntajeTotal() > ranking[j].getPuntajeTotal()) {
-					for (int k = ranking.length - 2; k >= j; k--) 
-						ranking[k + 1] = ranking[k];
-					ranking[j] = jugadores.get(i);
-					insertado = true;
-				}
-				j++;
-			}
-			if (ranking[j] == null)
-				ranking[j] = jugadores.get(i);
-		}
-		return ranking;*/
 	}
 
 }
